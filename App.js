@@ -11,7 +11,7 @@ export default function App() {
   }
 
   const handleAddGoal = () => {
-    setCourseGoals(currentGoals => [...courseGoals, enteredGoal]);
+    setCourseGoals(currentGoals => [...courseGoals, {key: Math.random().toString(), value: enteredGoal}]);
   }
 
   return (
@@ -25,16 +25,14 @@ export default function App() {
         />
         <Button title='ADD' onPress={handleAddGoal} />
       </View>
-      <ScrollView>
-        {courseGoals.map((e, i) =>
-            <View
-              key={i} 
-              style={styles.listItem}
-            >
-              <Text>{e}</Text>
-            </View>
-        )}
-      </ScrollView>
+      <FlatList 
+          data={courseGoals} 
+          renderItem={itemData=> (
+          <View style={styles.listItem}>
+          <Text>{itemData.item.value}</Text>
+        </View>
+        )} 
+      />
     </View>
   );
 }
