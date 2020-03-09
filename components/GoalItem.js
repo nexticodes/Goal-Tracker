@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, ShadowPropTypesIOS } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const GoalItem = props => {
     return (
-        <View style={styles.listItem}>
-            <Text>{props.title}</Text>
-        </View>
+        <TouchableOpacity activeOpacity={0.2} onPress={props.onDelete}>
+            <View style={styles.listItem} on>
+                <Text>{props.title}</Text>
+            </View>
+        </TouchableOpacity>
     )
 };
 
@@ -16,7 +18,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ccc',
         borderColor: 'black',
         borderWidth: 1
-      }
+    }
 })
 
 export default GoalItem;
