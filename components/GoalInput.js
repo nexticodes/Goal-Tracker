@@ -33,6 +33,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 10
+    },
+    input: {
+        borderBottomColor: 'black',
+        borderWidth: 1,
+        padding: 10,
+        width: '80%'
     }
 })
 
